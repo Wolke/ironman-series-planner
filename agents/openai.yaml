@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ironman Series Planner"
+  short_description: "Plan award-ready 30-day technical series"
+  default_prompt: "Use $ironman-series-planner to turn my technical topic into a 30-day iThome Ironman article plan with a final demo."

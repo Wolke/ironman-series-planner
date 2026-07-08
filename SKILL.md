@@ -1,0 +1,86 @@
+---
+name: ironman-series-planner
+description: Plan, critique, and structure an iThome Ironman-style 30-day technical article series using an award-oriented framework. Use when the user wants to create a new Ironman topic, reverse-engineer a successful series, design a 30-day article roadmap, define a final demo/product, build a companion GitHub repository structure, improve award chances, or turn a technical idea into a progressive tutorial series.
+---
+
+# Ironman Series Planner
+
+## Overview
+
+Use this skill to turn a technical topic into a coherent 30-day series with a visible learning arc, executable demos, and a final integrated project. Optimize for a reader-followable technical narrative, not isolated daily notes.
+
+Read [references/ironman-framework.md](references/ironman-framework.md) when planning a full series, evaluating a topic, creating the 30-day outline, or designing the repo/final demo.
+
+## Core Workflow
+
+1. Start from the Day 30 artifact.
+   Define the final system, demo, or deliverable before listing article titles. A strong series should accumulate toward something concrete.
+
+2. Identify the technical spine.
+   State the central framework, domain, or system pattern that connects all 30 days. Avoid a topic that is only a collection of unrelated tools.
+
+3. Split the series into four arcs.
+   Use this default arc unless the user's topic requires a different pacing:
+   - Days 1-3: problem framing, landscape, final target
+   - Days 4-10: core concepts and minimal runnable examples
+   - Days 11-17: design patterns and composable modules
+   - Days 18-25: production concerns and advanced applications
+   - Days 26-30: ecosystem, integration, UI/API/deployment, retrospective
+
+4. Make every day produce progress.
+   Each article must add at least one of: concept, code module, evaluation method, data asset, architecture decision, integration point, or final-system capability.
+
+5. Design the companion repository.
+   Mirror the article progression in folders. Include notebooks or runnable examples for early days, then package/API/UI structure near the end.
+
+6. Add award-oriented polish.
+   Check for novelty, continuity, runnable code, diagrams, reproducibility, engineering realism, and a clear final demo.
+
+## Output Shapes
+
+For a topic proposal, produce:
+
+```text
+Topic:
+Positioning:
+Final Day 30 Demo:
+Target Reader:
+Why This Is Timely:
+Risk:
+Suggested Series Arc:
+```
+
+For a full 30-day plan, produce a table with:
+
+```text
+Day | Article title | Reader promise | Demo/code artifact | How it advances the final project
+```
+
+For a repo plan, produce:
+
+```text
+README.md
+notebooks/
+src/
+apps/
+services/
+examples/
+docs/
+```
+
+Adjust folder names to the selected stack and avoid over-engineering early prototypes.
+
+## Quality Gate
+
+Before finalizing any plan, verify:
+
+- The Day 30 artifact is specific enough to demo.
+- Days 1-10 teach foundations without becoming pure theory.
+- Days 11-20 introduce reusable patterns, not only feature increments.
+- Days 21-30 demonstrate engineering maturity: evaluation, observability, persistence, deployment, UI, or operational tradeoffs.
+- The series has a visible narrative: each day answers "why now, why this step, what changed in the system?"
+- The topic is not just "30 days of API calls" or "30 AI tools in 30 days."
+
+## Tone And Framing
+
+Prefer pragmatic, technical, and reader-respecting writing. Use concrete system names, diagrams, code artifacts, and tradeoffs. Avoid award-gaming language in the actual article titles; keep the award strategy internal to planning.
