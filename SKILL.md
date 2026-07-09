@@ -36,6 +36,9 @@ Read [references/ironman-framework.md](references/ironman-framework.md) when pla
 6. Add award-oriented polish.
    Check for novelty, continuity, runnable code, diagrams, reproducibility, engineering realism, and a clear final demo.
 
+7. Capture real execution evidence when the article describes a tool run.
+   If the article asks the reader to paste a prompt, run a builder, publish, deploy, inspect analytics, or otherwise operate an external UI, treat screenshots as part of the artifact. Add them to the companion repo with stable names, embed them in the article near the relevant prompt or command, and verify the images are visible from the rendered destination after commit/push.
+
 ## Output Shapes
 
 For a topic proposal, produce:
@@ -80,6 +83,7 @@ Before finalizing any plan, verify:
 - Days 21-30 demonstrate engineering maturity: evaluation, observability, persistence, deployment, UI, or operational tradeoffs.
 - The series has a visible narrative: each day answers "why now, why this step, what changed in the system?"
 - The topic is not just "30 days of API calls" or "30 AI tools in 30 days."
+- Any screenshots or generated assets referenced by an article are committed, pushed, and visible in the rendered Markdown destination, not only present in the local working tree.
 
 ## Tone And Framing
 

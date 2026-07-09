@@ -140,6 +140,70 @@ Tomorrow's bridge:
 
 For shorter articles, keep all headings but compress sections. Continuity matters more than length.
 
+## Execution Evidence And Screenshots
+
+When an article includes a real tool workflow, the article should preserve the run as evidence, not only describe it. This matters for UI builders, AI coding tools, deployment dashboards, analytics panels, generated previews, GitHub pages, and any step where the reader benefits from seeing the actual state transition.
+
+Recommended placement:
+
+```text
+Prompt or command
+Execution screenshots
+Concept diagram
+Verification
+```
+
+For example, if a day asks the reader to paste a prompt into Lovable, put the screenshots immediately after the prompt block. The reader should see: the prompt entry, any login or permission gate, the submitted/generating state, and the final response or generated artifact.
+
+Screenshot naming:
+
+```text
+docs/ironman/screenshots/day02-lovable/
+  day02-01-lovable-home.png
+  day02-02-prompt-entered.png
+  day02-03-login-required.png
+  day02-04-dashboard-prompt-retained.png
+  day02-05-project-generating.png
+  day02-06-project-spec-ready.png
+```
+
+Use names that include:
+
+```text
+day number
+zero-padded step number
+actual observed state
+```
+
+Avoid vague names:
+
+```text
+after-submit.png
+screenshot1.png
+final.png
+```
+
+Good screenshot captions should explain what changed, not merely restate the file name:
+
+```md
+5. 送出後，Lovable 建立 `Nail Studio Hub` project，開始整理規格。
+
+![Lovable 建立 project 並開始生成](../screenshots/day02-lovable/day02-05-project-generating.png)
+```
+
+GitHub visibility checklist:
+
+```text
+1. Confirm the Markdown relative path resolves from the article file location.
+2. Confirm the image file is not ignored by .gitignore.
+3. Stage both the Markdown file and the image files.
+4. Commit and push before checking GitHub's rendered view.
+5. If raw.githubusercontent.com returns 404 for a private repo, verify with authenticated `gh api` instead of assuming the file is missing.
+6. Refresh the rendered GitHub page after push; a local preview is not enough.
+```
+
+Common failure mode: adding image links to the article but forgetting to commit the PNG files. The Markdown can be correct and still show broken images on GitHub because the assets only exist in the local working tree.
+
 ## Companion Repo Structure
 
 Prefer a repo that reflects the learning path and still supports a final product.
