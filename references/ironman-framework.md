@@ -217,6 +217,35 @@ Check the whole delivery chain:
 5. The rendered GitHub page is refreshed after push and checked visually.
 ```
 
+Local Markdown visibility checklist:
+
+```text
+1. Open the article file itself, not only the repository root or GitHub page.
+2. Resolve every image path from the article file's directory.
+3. For `docs/ironman/articles/day02.md`, the screenshot folder is `../screenshots/day02-lovable/`, not `docs/ironman/screenshots/day02-lovable/`.
+4. If the local article preview cannot show the image, fix the path before checking GitHub.
+5. After any rename, update the Markdown and remove or ignore stale temporary files.
+```
+
+Screenshot file naming should survive a later review without extra context. Prefer names that answer "which day, which step, what UI state":
+
+```text
+day02-01-lovable-dashboard-ready.png
+day02-02-product-brief-prompt-entered.png
+day02-03-product-brief-generating.png
+day02-04-product-brief-response-ready.png
+```
+
+Avoid names that hide the workflow state or came from the capture tool:
+
+```text
+截圖 2026-07-09 上午9.16.09.png
+Google Chrome Appshot 2026-07-09T09-16-09.246Z.png
+lovable.png
+result.png
+wrong-link-fixed.png
+```
+
 For a prompt-to-builder article, the screenshot sequence should preserve the reader's trust in the actual run:
 
 ```text

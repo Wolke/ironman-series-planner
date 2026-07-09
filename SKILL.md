@@ -42,6 +42,9 @@ Read [references/ironman-framework.md](references/ironman-framework.md) when pla
 8. Treat screenshot repair as article repair, not asset cleanup.
    If a rendered article does not show the image, fix the article and repository state together: confirm the relative path from the Markdown file, rename vague or misplaced screenshots, stage the PNG files with the Markdown change, push, and re-open the rendered page. Do not stop at "the file exists locally."
 
+9. Verify local Markdown rendering before calling the article done.
+   A reader may open `docs/ironman/articles/dayXX.md` directly in an editor or local Markdown viewer. Image links must therefore be relative to the article file's directory and should render locally before relying on GitHub's rendered page. If local preview cannot show the image, fix the Markdown path or asset location first.
+
 ## Output Shapes
 
 For a topic proposal, produce:
@@ -88,6 +91,8 @@ Before finalizing any plan, verify:
 - The topic is not just "30 days of API calls" or "30 AI tools in 30 days."
 - Any screenshots or generated assets referenced by an article are committed, pushed, and visible in the rendered Markdown destination, not only present in the local working tree.
 - Screenshot file names identify the day, step order, and observed UI state; avoid browser-download names, generic names, spaces, and names that only make sense outside the repo.
+- A direct local open of the article Markdown shows the screenshots. In `docs/ironman/articles/day02.md`, a link to `docs/ironman/screenshots/...` is wrong because it is repo-root-relative; from the article file, use `../screenshots/day02-lovable/...`.
+- Each screenshot section sits close to the prompt, command, or workflow it proves. Do not collect screenshots only at the end of the article unless the article itself is a retrospective.
 
 ## Tone And Framing
 
