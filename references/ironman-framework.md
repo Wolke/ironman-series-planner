@@ -204,6 +204,50 @@ GitHub visibility checklist:
 
 Common failure mode: adding image links to the article but forgetting to commit the PNG files. The Markdown can be correct and still show broken images on GitHub because the assets only exist in the local working tree.
 
+Field lesson from a Lovable Day 2 run:
+
+```text
+Symptom: the article opens on GitHub, but the embedded screenshots are invisible.
+Do not diagnose this as only a link problem.
+Check the whole delivery chain:
+1. The screenshot files are inside the repo, under the article area's stable screenshot folder.
+2. The Markdown link is relative to the article file, not relative to the repo root or the browser URL.
+3. The file names are stable, ordered, and descriptive enough to survive review.
+4. The PNG files are staged, committed, pushed, and present on GitHub.
+5. The rendered GitHub page is refreshed after push and checked visually.
+```
+
+For a prompt-to-builder article, the screenshot sequence should preserve the reader's trust in the actual run:
+
+```text
+dayXX-01-prompt-entered.png
+dayXX-02-submitted-or-generating.png
+dayXX-03-response-ready.png
+dayXX-04-generated-preview.png
+```
+
+If the workflow has two phases, name the phase explicitly:
+
+```text
+day07-01-plan-prompt-entered.png
+day07-02-plan-generating.png
+day07-03-plan-response-ready.png
+day07-04-build-prompt-entered.png
+day07-05-booking-form-generating.png
+day07-06-booking-form-preview.png
+```
+
+Avoid names that were meaningful only during capture:
+
+```text
+download.png
+Screenshot 2026-07-09 at 10.12.33.png
+debug-input-state.png
+lovable-final.png
+```
+
+Only keep debug screenshots if the article explicitly teaches debugging. Otherwise delete them before commit so the screenshot folder reads like a walkthrough, not a capture dump.
+
 ## Companion Repo Structure
 
 Prefer a repo that reflects the learning path and still supports a final product.
