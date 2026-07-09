@@ -45,6 +45,12 @@ Read [references/ironman-framework.md](references/ironman-framework.md) when pla
 9. Verify local Markdown rendering before calling the article done.
    A reader may open `docs/ironman/articles/dayXX.md` directly in an editor or local Markdown viewer. Image links must therefore be relative to the article file's directory and should render locally before relying on GitHub's rendered page. If local preview cannot show the image, fix the Markdown path or asset location first.
 
+10. Preserve the screenshot delivery chain.
+   For every screenshot-backed article, keep the chain intact: capture the real UI state, save the PNG under the repo, name it with day/step/state, link it from the article using the article-relative path, stage the Markdown and PNGs together, commit, push, and verify the pushed file exists. A broken image is usually a chain failure, not only a Markdown typo.
+
+11. Name screenshots for later review, not for the capture moment.
+   Avoid OS/browser/appshot names and temporary debugging labels. Use names that answer "which day, which step, what state did the reader see?" such as `day02-03-product-brief-generating.png` or `day07-06-booking-form-preview.png`. If the filename needs the surrounding chat to make sense, rename it before embedding.
+
 ## Output Shapes
 
 For a topic proposal, produce:
@@ -93,6 +99,8 @@ Before finalizing any plan, verify:
 - Screenshot file names identify the day, step order, and observed UI state; avoid browser-download names, generic names, spaces, and names that only make sense outside the repo.
 - A direct local open of the article Markdown shows the screenshots. In `docs/ironman/articles/day02.md`, a link to `docs/ironman/screenshots/...` is wrong because it is repo-root-relative; from the article file, use `../screenshots/day02-lovable/...`.
 - Each screenshot section sits close to the prompt, command, or workflow it proves. Do not collect screenshots only at the end of the article unless the article itself is a retrospective.
+- The screenshot folder contains only narrative evidence for the article. Remove stray capture attempts, stale renamed files, and debug images unless the article explicitly discusses them.
+- Remote verification checks the pushed asset, not only the page text. For private GitHub repos, use authenticated GitHub tooling such as `gh api repos/OWNER/REPO/contents/PATH --jq .size` when raw unauthenticated URLs are inconclusive.
 
 ## Tone And Framing
 

@@ -200,6 +200,7 @@ GitHub visibility checklist:
 4. Commit and push before checking GitHub's rendered view.
 5. If raw.githubusercontent.com returns 404 for a private repo, verify with authenticated `gh api` instead of assuming the file is missing.
 6. Refresh the rendered GitHub page after push; a local preview is not enough.
+7. Check at least one pushed screenshot asset directly, not only the Markdown diff.
 ```
 
 Common failure mode: adding image links to the article but forgetting to commit the PNG files. The Markdown can be correct and still show broken images on GitHub because the assets only exist in the local working tree.
@@ -215,6 +216,7 @@ Check the whole delivery chain:
 3. The file names are stable, ordered, and descriptive enough to survive review.
 4. The PNG files are staged, committed, pushed, and present on GitHub.
 5. The rendered GitHub page is refreshed after push and checked visually.
+6. The same Markdown file also renders when opened directly from the local workspace.
 ```
 
 Local Markdown visibility checklist:
@@ -225,6 +227,22 @@ Local Markdown visibility checklist:
 3. For `docs/ironman/articles/day02.md`, the screenshot folder is `../screenshots/day02-lovable/`, not `docs/ironman/screenshots/day02-lovable/`.
 4. If the local article preview cannot show the image, fix the path before checking GitHub.
 5. After any rename, update the Markdown and remove or ignore stale temporary files.
+6. Do not use root-relative repo paths, GitHub blob URLs, or raw URLs for local article screenshots unless the publishing target explicitly requires them.
+```
+
+End-to-end screenshot delivery checklist:
+
+```text
+1. Capture the actual UI state that proves the step, not a nearby or convenient screen.
+2. Save it under `docs/ironman/screenshots/dayXX-tool/`.
+3. Rename it before embedding: `dayXX-SS-short-observed-state.png`.
+4. Embed it near the prompt, command, or workflow step it proves.
+5. Preview the article locally from `docs/ironman/articles/dayXX.md`.
+6. Run repository validation if available.
+7. Stage the article and PNG files together.
+8. Commit and push.
+9. Verify a pushed asset exists with authenticated GitHub tooling when the repo is private.
+10. Re-open or refresh the rendered article and confirm the image is visible.
 ```
 
 Screenshot file naming should survive a later review without extra context. Prefer names that answer "which day, which step, what UI state":
